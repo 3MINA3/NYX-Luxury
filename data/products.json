@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Black Luxury Jacket",
+    "price": 120,
+    "category": "men",
+    "image": "assets/images/product1.jpg",
+    "description": "Premium fabric with a tailored luxury fit."
+  },
+  {
+    "id": 2,
+    "name": "Elegant Women Dress",
+    "price": 150,
+    "category": "women",
+    "image": "assets/images/product2.jpg",
+    "description": "Premium fabric with a tailored luxury fit."
+  },
+  {
+    "id": 3,
+    "name": "Gold Edition Watch",
+    "price": 200,
+    "category": "accessories",
+    "image": "assets/images/product3.jpg",
+    "description": "Premium fabric with a tailored luxury fit."
+  }
+]
