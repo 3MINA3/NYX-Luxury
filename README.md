@@ -132,7 +132,7 @@ Displays previously placed orders stored locally in the browser.
 
 ## Author
 
-**Mina**
+**Mina Emad**
 
 ---
 
