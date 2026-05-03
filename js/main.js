@@ -3,8 +3,8 @@ const featuredContainer = document.getElementById("featuredProducts");
 async function loadFeaturedProducts() {
   if (!featuredContainer) return;
   try {
-    const res = await fetch("data/products.json");
-    const products = await res.json();
+    const res = await fetch("data/products.json"); // promise json 
+    const products = await res.json();  // array of object
 
     featuredContainer.innerHTML = products
       .map((p) => {
@@ -19,7 +19,7 @@ async function loadFeaturedProducts() {
         </div>
       `;
       })
-      .join("");
+      .join(""); // to string 
   } catch (err) {
     console.error("Error loading products:", err);
   }
@@ -59,24 +59,24 @@ loadShopProducts();
 const productDetailsContainer = document.getElementById("productDetails");
 
 async function loadProductDetails() {
-  if (!productDetailsContainer) return; // يشتغل بس في product.html
+  if (!productDetailsContainer) return; 
 
-  // 1) نقرأ id من الرابط
+  
   const params = new URLSearchParams(window.location.search);
   const productId = params.get("id");
 
-  // لو مفيش id
+ 
   if (!productId) {
     productDetailsContainer.innerHTML = `<p class="text-center">Product not found.</p>`;
     return;
   }
 
   try {
-    // 2) نجيب كل المنتجات من JSON
+    
     const res = await fetch("data/products.json");
     const products = await res.json();
 
-    // 3) نجيب المنتج المطلوب بالـ id
+    
     const product = products.find((p) => String(p.id) === String(productId));
 
     if (!product) {
@@ -84,7 +84,7 @@ async function loadProductDetails() {
       return;
     }
 
-    // 4) نعرض تفاصيل المنتج
+    
     productDetailsContainer.innerHTML = `
       <div class="col-md-6">
         <img src="${product.image}" class="img-fluid" alt="${product.name}">
@@ -135,7 +135,7 @@ async function loadProductDetails() {
 
       let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-      // لو نفس المنتج بنفس المقاس واللون موجود زوّد الكمية
+      
       const existingItem = cart.find(
         (item) =>
           item.id === cartItem.id && item.size === size && item.color === color,
@@ -231,7 +231,7 @@ function changeQty(id, size, color, change) {
 
   item.qty += change;
 
-  // لو الكمية بقت 0 أو أقل احذف المنتج
+  
   if (item.qty <= 0) {
     cart = cart.filter(
       (p) => !(p.id === id && p.size === size && p.color === color),
@@ -283,7 +283,7 @@ if (checkoutForm) {
 
     localStorage.setItem("orders", JSON.stringify(orders));
 
-    // تفريغ السلة بعد الطلب
+    
     localStorage.removeItem("cart");
 
     alert("Order placed successfully ✅");
